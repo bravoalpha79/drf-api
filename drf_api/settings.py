@@ -62,7 +62,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEV' in os.environ
 
-ALLOWED_HOSTS = ['localhost', 'drf-api-ba79-426bf10127a8.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'drf-api-ba79-426bf10127a8.herokuapp.com']
 
 
 # Application definition
@@ -155,7 +155,6 @@ else:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
     }
-    print("Connected to PostgreSQL!")
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
