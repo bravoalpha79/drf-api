@@ -111,12 +111,12 @@ if 'CLIENT_ORIGIN' in os.environ:
     ]
 
 if 'CLIENT_ORIGIN_DEV' in os.environ:
-    # CORS_ALLOWED_ORIGIN_REGEXES = [
-    #     r"^https:\/\/.*\.codeinstitute-ide\.net$",
-    # ]
-    CORS_ALLOWED_ORIGINS = [
-        os.environ.get('CLIENT_ORIGIN_DEV')
+    CORS_ALLOWED_ORIGIN_REGEXES = [
+        r"^https:\/\/.*\.codeinstitute-ide\.net$",
     ]
+    # CORS_ALLOWED_ORIGINS = [
+    #     os.environ.get('CLIENT_ORIGIN_DEV')
+    # ]
 
 
 CORS_ALLOW_CREDENTIALS = True
