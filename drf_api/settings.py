@@ -62,7 +62,11 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEV' in os.environ
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', os.environ.get('ALLOWED_HOST')]
+ALLOWED_HOSTS = [
+    'localhost',
+    '8000-bravoalpha79-drfapi-nl5b6v6013p.ws.codeinstitute-ide.net',
+    os.environ.get('ALLOWED_HOST'),
+]
 
 
 # Application definition
@@ -106,12 +110,14 @@ MIDDLEWARE = [
 ]
 
 
-CORS_ALLOWED_ORIGINS = [
-    origin for origin in [
-        os.environ.get("CLIENT_ORIGIN"),
-        os.environ.get("CLIENT_ORIGIN_DEV")
-    ] if origin
-] 
+if 'CLIENT_ORIGIN' in os.environ:
+    CORS_ALLOWED_ORIGINS = [
+         os.environ.get('CLIENT_ORIGIN')
+    ]
+else:
+    CORS_ALLOWED_ORIGIN_REGEXES = [
+        r"^https:\/\/.*\.codeinstitute-ide\.net$",
+    ]
 
 CORS_ALLOW_CREDENTIALS = True
 
